@@ -15,7 +15,7 @@
     "test-watch": "tsc --noUnusedParameters --noUnusedLocals && karma start --no-single-run --auto-watch"
   },
   "typings": "ng2-drag-n-drop.d.ts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bugs": {
     "url": "https://github.com/aliChherawalla/ng2-drag-n-drop/issues"
   },
