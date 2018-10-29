@@ -17,6 +17,7 @@ export declare class SortableContainer extends AbstractComponent {
     indexOf(item: any): number;
     removeItemAt(index: number): void;
     insertItemAt(item: any, index: number): void;
+    replaceItemAt(item: any, index: number): void;
 }
 export declare class SortableComponent extends AbstractComponent {
     private _sortableContainer;

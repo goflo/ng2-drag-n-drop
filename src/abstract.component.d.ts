@@ -77,14 +77,14 @@ export declare abstract class AbstractComponent {
     setDragHandle(elem: HTMLElement): void;
     /******* Change detection ******/
     detectChanges(): void;
-    private _onDragEnter(event);
-    private _onDragOver(event);
-    private _onDragLeave(event);
-    private _onDrop(event);
-    private _isDropAllowed(event);
-    private _preventAndStop(event);
-    private _onDragStart(event);
-    private _onDragEnd(event);
+    private _onDragEnter;
+    private _onDragOver;
+    private _onDragLeave;
+    private _onDrop;
+    private _isDropAllowed;
+    private _preventAndStop;
+    private _onDragStart;
+    private _onDragEnd;
     _onDragEnterCallback(event: Event): void;
     _onDragOverCallback(event: Event): void;
     _onDragLeaveCallback(event: Event): void;

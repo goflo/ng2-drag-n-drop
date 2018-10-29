@@ -1,21 +1,13 @@
 {
-  "author": {
-    "name": "Mohammed Ali Chherawalla"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aliChherawalla/ng2-drag-n-drop.git"
   },
-  "scripts": {
-    "build": "npm run clean && ngc && ng-packagr -p ng-package.json && cp style.css dist/bundles/style.css && rimraf dist/tests",
-    "clean": "rimraf dist",
-    "commit": "npm run prepublish && npm test && git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "karma start",
-    "test-watch": "tsc --noUnusedParameters --noUnusedLocals && karma start --no-single-run --auto-watch"
+  "author": {
+    "name": "Mohammed Ali Chherawalla"
   },
   "typings": "ng2-drag-n-drop.d.ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "bugs": {
     "url": "https://github.com/aliChherawalla/ng2-drag-n-drop/issues"
   },
@@ -63,7 +55,7 @@
   "engines": {
     "npm": ">4.0.0"
   },
-  "es2015": "ng2-drag-n-drop.js",
+  "es2015": "esm2015/ng2-drag-n-drop.js",
   "homepage": "https://github.com/aliChherawalla/ng2-drag-n-drop#readme",
   "keywords": [
     "angular",
@@ -76,10 +68,13 @@
   "license": "MIT",
   "main": "bundles/ng2-drag-n-drop.umd.js",
   "metadata": "ng2-drag-n-drop.metadata.json",
-  "module": "ng2-drag-n-drop.es5.js",
+  "module": "esm5/ng2-drag-n-drop.js",
   "name": "ng2-drag-n-drop",
   "peerDependencies": {
     "@angular/core": "^4.0.0 || ^5.0.0",
     "@angular/forms": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "tslib": "^1.7.1"
   }
 }
