@@ -1,46 +1,67 @@
-import { ChangeDetectorRef, Directive, ElementRef, EventEmitter, Injectable, Input, NgModule, Output } from '@angular/core';
+import { Injectable, ChangeDetectorRef, ElementRef, Directive, Input, Output, EventEmitter, NgModule } from '@angular/core';
 import { FormArray } from '@angular/forms';
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
 /**
  * Check and return true if an object is type of string
+ * @param {?} obj
+ * @return {?}
  */
 function isString(obj) {
     return typeof obj === "string";
 }
 /**
  * Check and return true if an object not undefined or null
+ * @param {?} obj
+ * @return {?}
  */
 function isPresent(obj) {
     return obj !== undefined && obj !== null;
 }
 /**
  * Check and return true if an object is type of Function
+ * @param {?} obj
+ * @return {?}
  */
 function isFunction(obj) {
     return typeof obj === "function";
 }
 /**
  * Create Image element with specified url string
+ * @param {?} src
+ * @return {?}
  */
 function createImage(src) {
-    let img = new HTMLImageElement();
+    let /** @type {?} */ img = new HTMLImageElement();
     img.src = src;
     return img;
 }
 /**
  * Call the function
+ * @param {?} fun
+ * @return {?}
  */
 function callFun(fun) {
     return fun();
 }
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
 class DataTransferEffect {
+    /**
+     * @param {?} name
+     */
     constructor(name) {
         this.name = name;
     }
@@ -50,15 +71,20 @@ DataTransferEffect.LINK = new DataTransferEffect('link');
 DataTransferEffect.MOVE = new DataTransferEffect('move');
 DataTransferEffect.NONE = new DataTransferEffect('none');
 class DragImage {
+    /**
+     * @param {?} imageElement
+     * @param {?=} x_offset
+     * @param {?=} y_offset
+     */
     constructor(imageElement, x_offset = 0, y_offset = 0) {
         this.imageElement = imageElement;
         this.x_offset = x_offset;
         this.y_offset = y_offset;
         if (isString(this.imageElement)) {
             // Create real image from string source
-            let imgScr = this.imageElement;
+            let /** @type {?} */ imgScr = /** @type {?} */ (this.imageElement);
             this.imageElement = new HTMLImageElement();
-            this.imageElement.src = imgScr;
+            (/** @type {?} */ (this.imageElement)).src = imgScr;
         }
     }
 }
@@ -75,41 +101,53 @@ class DragDropConfig {
     }
 }
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
-var __decorate$1 = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 class DragDropData {
 }
+/**
+ * @return {?}
+ */
 function dragDropServiceFactory() {
     return new DragDropService();
 }
-let DragDropService = class DragDropService {
+class DragDropService {
     constructor() {
         this.allowedDropZones = [];
     }
-};
-DragDropService = __decorate$1([
-    Injectable()
-], DragDropService);
+}
+DragDropService.decorators = [
+    { type: Injectable },
+];
+/**
+ * @param {?} config
+ * @return {?}
+ */
 function dragDropSortableServiceFactory(config) {
     return new DragDropSortableService(config);
 }
-let DragDropSortableService = class DragDropSortableService {
+class DragDropSortableService {
+    /**
+     * @param {?} _config
+     */
     constructor(_config) {
         this._config = _config;
     }
+    /**
+     * @return {?}
+     */
     get elem() {
         return this._elem;
     }
+    /**
+     * @param {?} elem
+     * @return {?}
+     */
     markSortable(elem) {
         if (isPresent(this._elem)) {
             this._elem.classList.remove(this._config.onSortableDragClass);
@@ -119,25 +157,32 @@ let DragDropSortableService = class DragDropSortableService {
             this._elem.classList.add(this._config.onSortableDragClass);
         }
     }
-};
-DragDropSortableService = __decorate$1([
-    Injectable(),
-    __metadata("design:paramtypes", [DragDropConfig])
-], DragDropSortableService);
+}
+DragDropSortableService.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+DragDropSortableService.ctorParameters = () => [
+    { type: DragDropConfig, },
+];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
-var __decorate$3 = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$2 = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-let AbstractComponent = class AbstractComponent {
+/**
+ * @abstract
+ */
+class AbstractComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} _dragDropService
+     * @param {?} _config
+     * @param {?} _cdr
+     */
     constructor(elemRef, _dragDropService, _config, _cdr) {
         this._dragDropService = _dragDropService;
         this._config = _config;
@@ -184,7 +229,7 @@ let AbstractComponent = class AbstractComponent {
         };
         this._elem.ondragstart = (event) => {
             if (this._dragHandle) {
-                if (!this._dragHandle.contains(this._target)) {
+                if (!this._dragHandle.contains(/** @type {?} */ (this._target))) {
                     event.preventDefault();
                     return;
                 }
@@ -198,31 +243,31 @@ let AbstractComponent = class AbstractComponent {
                 // Change drag image
                 if (isPresent(this.dragImage)) {
                     if (isString(this.dragImage)) {
-                        event.dataTransfer.setDragImage(createImage(this.dragImage));
+                        (/** @type {?} */ (event.dataTransfer)).setDragImage(createImage(/** @type {?} */ (this.dragImage)));
                     }
                     else if (isFunction(this.dragImage)) {
-                        event.dataTransfer.setDragImage(callFun(this.dragImage));
+                        (/** @type {?} */ (event.dataTransfer)).setDragImage(callFun(/** @type {?} */ (this.dragImage)));
                     }
                     else {
-                        let img = this.dragImage;
-                        event.dataTransfer.setDragImage(img.imageElement, img.x_offset, img.y_offset);
+                        let /** @type {?} */ img = /** @type {?} */ (this.dragImage);
+                        (/** @type {?} */ (event.dataTransfer)).setDragImage(img.imageElement, img.x_offset, img.y_offset);
                     }
                 }
                 else if (isPresent(this._config.dragImage)) {
-                    let dragImage = this._config.dragImage;
-                    event.dataTransfer.setDragImage(dragImage.imageElement, dragImage.x_offset, dragImage.y_offset);
+                    let /** @type {?} */ dragImage = this._config.dragImage;
+                    (/** @type {?} */ (event.dataTransfer)).setDragImage(dragImage.imageElement, dragImage.x_offset, dragImage.y_offset);
                 }
                 else if (this.cloneItem) {
-                    this._dragHelper = this._elem.cloneNode(true);
+                    this._dragHelper = /** @type {?} */ (this._elem.cloneNode(true));
                     this._dragHelper.classList.add('dnd-drag-item');
                     this._dragHelper.style.position = "absolute";
                     this._dragHelper.style.top = "0px";
                     this._dragHelper.style.left = "-1000px";
                     this._elem.parentElement.appendChild(this._dragHelper);
-                    event.dataTransfer.setDragImage(this._dragHelper, event.offsetX, event.offsetY);
+                    (/** @type {?} */ (event.dataTransfer)).setDragImage(this._dragHelper, event.offsetX, event.offsetY);
                 }
                 // Change drag cursor
-                let cursorelem = (this._dragHandle) ? this._dragHandle : this._elem;
+                let /** @type {?} */ cursorelem = (this._dragHandle) ? this._dragHandle : this._elem;
                 if (this._dragEnabled) {
                     cursorelem.style.cursor = this.effectCursor ? this.effectCursor : this._config.dragCursor;
                 }
@@ -238,30 +283,47 @@ let AbstractComponent = class AbstractComponent {
             // console.log('ondragend', event.target);
             this._onDragEnd(event);
             // Restore style of dragged element
-            let cursorelem = (this._dragHandle) ? this._dragHandle : this._elem;
+            let /** @type {?} */ cursorelem = (this._dragHandle) ? this._dragHandle : this._elem;
             cursorelem.style.cursor = this._defaultCursor;
         };
     }
+    /**
+     * @param {?} enabled
+     * @return {?}
+     */
     set dragEnabled(enabled) {
         this._dragEnabled = !!enabled;
         this._elem.draggable = this._dragEnabled;
     }
+    /**
+     * @return {?}
+     */
     get dragEnabled() {
         return this._dragEnabled;
     }
+    /**
+     * @param {?} elem
+     * @return {?}
+     */
     setDragHandle(elem) {
         this._dragHandle = elem;
     }
-    /******* Change detection ******/
+    /**
+     * **** Change detection *****
+     * @return {?}
+     */
     detectChanges() {
         // Programmatically run change detection to fix issue in Safari
         setTimeout(() => {
-            if (this._cdr && !this._cdr.destroyed) {
+            if (this._cdr && !(/** @type {?} */ (this._cdr)).destroyed) {
                 this._cdr.detectChanges();
             }
         }, 250);
     }
-    //****** Droppable *******//
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEnter(event) {
         // console.log('ondragenter._isDropAllowed', this._isDropAllowed);
         if (this._isDropAllowed(event)) {
@@ -269,6 +331,10 @@ let AbstractComponent = class AbstractComponent {
             this._onDragEnterCallback(event);
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragOver(event) {
         // // console.log('ondragover._isDropAllowed', this._isDropAllowed);
         if (this._isDropAllowed(event)) {
@@ -280,6 +346,10 @@ let AbstractComponent = class AbstractComponent {
             this._onDragOverCallback(event);
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragLeave(event) {
         // console.log('ondragleave._isDropAllowed', this._isDropAllowed);
         if (this._isDropAllowed(event)) {
@@ -287,6 +357,10 @@ let AbstractComponent = class AbstractComponent {
             this._onDragLeaveCallback(event);
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDrop(event) {
         // console.log('ondrop._isDropAllowed', this._isDropAllowed);
         if (this._isDropAllowed(event)) {
@@ -296,6 +370,10 @@ let AbstractComponent = class AbstractComponent {
             this.detectChanges();
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _isDropAllowed(event) {
         if ((this._dragDropService.isDragged || (event.dataTransfer && event.dataTransfer.files)) && this.dropEnabled) {
             // First, if `allowDrop` is set, call it to determine whether the
@@ -307,8 +385,8 @@ let AbstractComponent = class AbstractComponent {
             if (this.dropZones.length === 0 && this._dragDropService.allowedDropZones.length === 0) {
                 return true;
             }
-            for (let i = 0; i < this._dragDropService.allowedDropZones.length; i++) {
-                let dragZone = this._dragDropService.allowedDropZones[i];
+            for (let /** @type {?} */ i = 0; i < this._dragDropService.allowedDropZones.length; i++) {
+                let /** @type {?} */ dragZone = this._dragDropService.allowedDropZones[i];
                 if (this.dropZones.indexOf(dragZone) !== -1) {
                     return true;
                 }
@@ -316,6 +394,10 @@ let AbstractComponent = class AbstractComponent {
         }
         return false;
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _preventAndStop(event) {
         if (event.preventDefault) {
             event.preventDefault();
@@ -324,7 +406,10 @@ let AbstractComponent = class AbstractComponent {
             event.stopPropagation();
         }
     }
-    //*********** Draggable **********//
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragStart(event) {
         //console.log('ondragstart.dragEnabled', this._dragEnabled);
         if (this._dragEnabled) {
@@ -333,26 +418,64 @@ let AbstractComponent = class AbstractComponent {
             this._onDragStartCallback(event);
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEnd(event) {
         this._dragDropService.allowedDropZones = [];
         // console.log('ondragend.allowedDropZones', this._dragDropService.allowedDropZones);
         this._onDragEndCallback(event);
     }
-    //**** Drop Callbacks ****//
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEnterCallback(event) { }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragOverCallback(event) { }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragLeaveCallback(event) { }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDropCallback(event) { }
-    //**** Drag Callbacks ****//
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragStartCallback(event) { }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEndCallback(event) { }
-};
-AbstractComponent = __decorate$3([
-    Injectable(),
-    __metadata$2("design:paramtypes", [ElementRef, DragDropService, DragDropConfig,
-        ChangeDetectorRef])
-], AbstractComponent);
+}
+AbstractComponent.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+AbstractComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: ChangeDetectorRef, },
+];
 class AbstractHandleComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} _dragDropService
+     * @param {?} _config
+     * @param {?} _Component
+     * @param {?} _cdr
+     */
     constructor(elemRef, _dragDropService, _config, _Component, _cdr) {
         this._dragDropService = _dragDropService;
         this._config = _config;
@@ -363,19 +486,20 @@ class AbstractHandleComponent {
     }
 }
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
-var __decorate$2 = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$1 = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-let DraggableComponent = class DraggableComponent extends AbstractComponent {
+class DraggableComponent extends AbstractComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} dragDropService
+     * @param {?} config
+     * @param {?} cdr
+     */
     constructor(elemRef, dragDropService, config, cdr) {
         super(elemRef, dragDropService, config, cdr);
         /**
@@ -391,24 +515,40 @@ let DraggableComponent = class DraggableComponent extends AbstractComponent {
         this._defaultCursor = this._elem.style.cursor;
         this.dragEnabled = true;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set draggable(value) {
         this.dragEnabled = !!value;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set dropzones(value) {
         this.dropZones = value;
     }
     /**
      * Drag allowed effect
+     * @param {?} value
+     * @return {?}
      */
     set effectallowed(value) {
         this.effectAllowed = value;
     }
     /**
      * Drag effect cursor
+     * @param {?} value
+     * @return {?}
      */
     set effectcursor(value) {
         this.effectCursor = value;
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragStartCallback(event) {
         this._dragDropService.isDragged = true;
         this._dragDropService.dragData = this.dragData;
@@ -417,6 +557,10 @@ let DraggableComponent = class DraggableComponent extends AbstractComponent {
         //
         this.onDragStart.emit({ dragData: this.dragData, mouseEvent: event });
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEndCallback(event) {
         this._dragDropService.isDragged = false;
         this._dragDropService.dragData = null;
@@ -425,80 +569,67 @@ let DraggableComponent = class DraggableComponent extends AbstractComponent {
         //
         this.onDragEnd.emit({ dragData: this.dragData, mouseEvent: event });
     }
+}
+DraggableComponent.decorators = [
+    { type: Directive, args: [{ selector: '[dnd-draggable]' },] },
+];
+/** @nocollapse */
+DraggableComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: ChangeDetectorRef, },
+];
+DraggableComponent.propDecorators = {
+    "draggable": [{ type: Input, args: ["dragEnabled",] },],
+    "onDragStart": [{ type: Output },],
+    "onDragEnd": [{ type: Output },],
+    "dragData": [{ type: Input },],
+    "onDragSuccessCallback": [{ type: Output, args: ["onDragSuccess",] },],
+    "dropzones": [{ type: Input, args: ["dropZones",] },],
+    "effectallowed": [{ type: Input, args: ["effectAllowed",] },],
+    "effectcursor": [{ type: Input, args: ["effectCursor",] },],
+    "dragImage": [{ type: Input },],
+    "cloneItem": [{ type: Input },],
 };
-__decorate$2([
-    Input("dragEnabled"),
-    __metadata$1("design:type", Boolean),
-    __metadata$1("design:paramtypes", [Boolean])
-], DraggableComponent.prototype, "draggable", null);
-__decorate$2([
-    Output(),
-    __metadata$1("design:type", EventEmitter)
-], DraggableComponent.prototype, "onDragStart", void 0);
-__decorate$2([
-    Output(),
-    __metadata$1("design:type", EventEmitter)
-], DraggableComponent.prototype, "onDragEnd", void 0);
-__decorate$2([
-    Input(),
-    __metadata$1("design:type", Object)
-], DraggableComponent.prototype, "dragData", void 0);
-__decorate$2([
-    Output("onDragSuccess"),
-    __metadata$1("design:type", EventEmitter)
-], DraggableComponent.prototype, "onDragSuccessCallback", void 0);
-__decorate$2([
-    Input("dropZones"),
-    __metadata$1("design:type", Array),
-    __metadata$1("design:paramtypes", [Array])
-], DraggableComponent.prototype, "dropzones", null);
-__decorate$2([
-    Input("effectAllowed"),
-    __metadata$1("design:type", String),
-    __metadata$1("design:paramtypes", [String])
-], DraggableComponent.prototype, "effectallowed", null);
-__decorate$2([
-    Input("effectCursor"),
-    __metadata$1("design:type", String),
-    __metadata$1("design:paramtypes", [String])
-], DraggableComponent.prototype, "effectcursor", null);
-__decorate$2([
-    Input(),
-    __metadata$1("design:type", Object)
-], DraggableComponent.prototype, "dragImage", void 0);
-__decorate$2([
-    Input(),
-    __metadata$1("design:type", Boolean)
-], DraggableComponent.prototype, "cloneItem", void 0);
-DraggableComponent = __decorate$2([
-    Directive({ selector: '[dnd-draggable]' }),
-    __metadata$1("design:paramtypes", [ElementRef, DragDropService, DragDropConfig,
-        ChangeDetectorRef])
-], DraggableComponent);
-let DraggableHandleComponent = class DraggableHandleComponent extends AbstractHandleComponent {
+class DraggableHandleComponent extends AbstractHandleComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} dragDropService
+     * @param {?} config
+     * @param {?} _Component
+     * @param {?} cdr
+     */
     constructor(elemRef, dragDropService, config, _Component, cdr) {
         super(elemRef, dragDropService, config, _Component, cdr);
     }
-};
-DraggableHandleComponent = __decorate$2([
-    Directive({ selector: '[dnd-draggable-handle]' }),
-    __metadata$1("design:paramtypes", [ElementRef, DragDropService, DragDropConfig, DraggableComponent,
-        ChangeDetectorRef])
-], DraggableHandleComponent);
+}
+DraggableHandleComponent.decorators = [
+    { type: Directive, args: [{ selector: '[dnd-draggable-handle]' },] },
+];
+/** @nocollapse */
+DraggableHandleComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: DraggableComponent, },
+    { type: ChangeDetectorRef, },
+];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
-var __decorate$4 = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$3 = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-let DroppableComponent = class DroppableComponent extends AbstractComponent {
+class DroppableComponent extends AbstractComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} dragDropService
+     * @param {?} config
+     * @param {?} cdr
+     */
     constructor(elemRef, dragDropService, config, cdr) {
         super(elemRef, dragDropService, config, cdr);
         /**
@@ -511,33 +642,57 @@ let DroppableComponent = class DroppableComponent extends AbstractComponent {
         this.onDragLeave = new EventEmitter();
         this.dropEnabled = true;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set droppable(value) {
         this.dropEnabled = !!value;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set allowdrop(value) {
         this.allowDrop = value;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set dropzones(value) {
         this.dropZones = value;
     }
     /**
      * Drag allowed effect
+     * @param {?} value
+     * @return {?}
      */
     set effectallowed(value) {
         this.effectAllowed = value;
     }
     /**
      * Drag effect cursor
+     * @param {?} value
+     * @return {?}
      */
     set effectcursor(value) {
         this.effectCursor = value;
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEnterCallback(event) {
         if (this._dragDropService.isDragged) {
             this._elem.classList.add(this._config.onDragEnterClass);
             this.onDragEnter.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragOverCallback(event) {
         if (this._dragDropService.isDragged) {
             this._elem.classList.add(this._config.onDragOverClass);
@@ -545,6 +700,10 @@ let DroppableComponent = class DroppableComponent extends AbstractComponent {
         }
     }
     ;
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragLeaveCallback(event) {
         if (this._dragDropService.isDragged) {
             this._elem.classList.remove(this._config.onDragOverClass);
@@ -553,8 +712,12 @@ let DroppableComponent = class DroppableComponent extends AbstractComponent {
         }
     }
     ;
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDropCallback(event) {
-        let dataTransfer = event.dataTransfer;
+        let /** @type {?} */ dataTransfer = (/** @type {?} */ (event)).dataTransfer;
         if (this._dragDropService.isDragged || (dataTransfer && dataTransfer.files)) {
             this.onDropSuccess.emit({ dragData: this._dragDropService.dragData, mouseEvent: event });
             if (this._dragDropService.onDragSuccessCallback) {
@@ -564,76 +727,61 @@ let DroppableComponent = class DroppableComponent extends AbstractComponent {
             this._elem.classList.remove(this._config.onDragEnterClass);
         }
     }
+}
+DroppableComponent.decorators = [
+    { type: Directive, args: [{ selector: '[dnd-droppable]' },] },
+];
+/** @nocollapse */
+DroppableComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: ChangeDetectorRef, },
+];
+DroppableComponent.propDecorators = {
+    "droppable": [{ type: Input, args: ["dropEnabled",] },],
+    "onDropSuccess": [{ type: Output },],
+    "onDragEnter": [{ type: Output },],
+    "onDragOver": [{ type: Output },],
+    "onDragLeave": [{ type: Output },],
+    "allowdrop": [{ type: Input, args: ["allowDrop",] },],
+    "dropzones": [{ type: Input, args: ["dropZones",] },],
+    "effectallowed": [{ type: Input, args: ["effectAllowed",] },],
+    "effectcursor": [{ type: Input, args: ["effectCursor",] },],
 };
-__decorate$4([
-    Input("dropEnabled"),
-    __metadata$3("design:type", Boolean),
-    __metadata$3("design:paramtypes", [Boolean])
-], DroppableComponent.prototype, "droppable", null);
-__decorate$4([
-    Output(),
-    __metadata$3("design:type", EventEmitter)
-], DroppableComponent.prototype, "onDropSuccess", void 0);
-__decorate$4([
-    Output(),
-    __metadata$3("design:type", EventEmitter)
-], DroppableComponent.prototype, "onDragEnter", void 0);
-__decorate$4([
-    Output(),
-    __metadata$3("design:type", EventEmitter)
-], DroppableComponent.prototype, "onDragOver", void 0);
-__decorate$4([
-    Output(),
-    __metadata$3("design:type", EventEmitter)
-], DroppableComponent.prototype, "onDragLeave", void 0);
-__decorate$4([
-    Input("allowDrop"),
-    __metadata$3("design:type", Function),
-    __metadata$3("design:paramtypes", [Function])
-], DroppableComponent.prototype, "allowdrop", null);
-__decorate$4([
-    Input("dropZones"),
-    __metadata$3("design:type", Array),
-    __metadata$3("design:paramtypes", [Array])
-], DroppableComponent.prototype, "dropzones", null);
-__decorate$4([
-    Input("effectAllowed"),
-    __metadata$3("design:type", String),
-    __metadata$3("design:paramtypes", [String])
-], DroppableComponent.prototype, "effectallowed", null);
-__decorate$4([
-    Input("effectCursor"),
-    __metadata$3("design:type", String),
-    __metadata$3("design:paramtypes", [String])
-], DroppableComponent.prototype, "effectcursor", null);
-DroppableComponent = __decorate$4([
-    Directive({ selector: '[dnd-droppable]' }),
-    __metadata$3("design:paramtypes", [ElementRef, DragDropService, DragDropConfig,
-        ChangeDetectorRef])
-], DroppableComponent);
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
-var __decorate$5 = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$4 = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-let SortableContainer = class SortableContainer extends AbstractComponent {
+class SortableContainer extends AbstractComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} dragDropService
+     * @param {?} config
+     * @param {?} cdr
+     * @param {?} _sortableDataService
+     */
     constructor(elemRef, dragDropService, config, cdr, _sortableDataService) {
         super(elemRef, dragDropService, config, cdr);
         this._sortableDataService = _sortableDataService;
         this._sortableData = [];
         this.dragEnabled = false;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set draggable(value) {
         this.dragEnabled = !!value;
     }
+    /**
+     * @param {?} sortableData
+     * @return {?}
+     */
     set sortableData(sortableData) {
         this._sortableData = sortableData;
         if (sortableData instanceof FormArray) {
@@ -646,15 +794,26 @@ let SortableContainer = class SortableContainer extends AbstractComponent {
         this.dropEnabled = !!this._sortableData;
         // console.log("collection is changed, drop enabled: " + this.dropEnabled);
     }
+    /**
+     * @return {?}
+     */
     get sortableData() {
         return this._sortableData;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set dropzones(value) {
         this.dropZones = value;
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEnterCallback(event) {
         if (this._sortableDataService.isDragged) {
-            let item = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
+            let /** @type {?} */ item = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
             // Check does element exist in sortableData of this Container
             if (this.indexOf(item) === -1) {
                 // Let's add it
@@ -673,68 +832,157 @@ let SortableContainer = class SortableContainer extends AbstractComponent {
             this.detectChanges();
         }
     }
+    /**
+     * @param {?} index
+     * @return {?}
+     */
     getItemAt(index) {
         return this.sortableHandler.getItemAt(this._sortableData, index);
     }
+    /**
+     * @param {?} item
+     * @return {?}
+     */
     indexOf(item) {
         return this.sortableHandler.indexOf(this._sortableData, item);
     }
+    /**
+     * @param {?} index
+     * @return {?}
+     */
     removeItemAt(index) {
         this.sortableHandler.removeItemAt(this._sortableData, index);
     }
+    /**
+     * @param {?} item
+     * @param {?} index
+     * @return {?}
+     */
     insertItemAt(item, index) {
         this.sortableHandler.insertItemAt(this._sortableData, item, index);
     }
+    /**
+     * @param {?} item
+     * @param {?} index
+     * @return {?}
+     */
+    replaceItemAt(item, index) {
+        this.sortableHandler.replaceItemAt(this._sortableData, item, index);
+    }
+}
+SortableContainer.decorators = [
+    { type: Directive, args: [{ selector: '[dnd-sortable-container]' },] },
+];
+/** @nocollapse */
+SortableContainer.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: ChangeDetectorRef, },
+    { type: DragDropSortableService, },
+];
+SortableContainer.propDecorators = {
+    "draggable": [{ type: Input, args: ["dragEnabled",] },],
+    "sortableData": [{ type: Input },],
+    "dropzones": [{ type: Input, args: ["dropZones",] },],
 };
-__decorate$5([
-    Input("dragEnabled"),
-    __metadata$4("design:type", Boolean),
-    __metadata$4("design:paramtypes", [Boolean])
-], SortableContainer.prototype, "draggable", null);
-__decorate$5([
-    Input(),
-    __metadata$4("design:type", Object),
-    __metadata$4("design:paramtypes", [Object])
-], SortableContainer.prototype, "sortableData", null);
-__decorate$5([
-    Input("dropZones"),
-    __metadata$4("design:type", Array),
-    __metadata$4("design:paramtypes", [Array])
-], SortableContainer.prototype, "dropzones", null);
-SortableContainer = __decorate$5([
-    Directive({ selector: '[dnd-sortable-container]' }),
-    __metadata$4("design:paramtypes", [ElementRef, DragDropService, DragDropConfig, ChangeDetectorRef,
-        DragDropSortableService])
-], SortableContainer);
 class SortableArrayHandler {
+    /**
+     * @param {?} sortableData
+     * @param {?} index
+     * @return {?}
+     */
     getItemAt(sortableData, index) {
         return sortableData[index];
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} item
+     * @return {?}
+     */
     indexOf(sortableData, item) {
         return sortableData.indexOf(item);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} index
+     * @return {?}
+     */
     removeItemAt(sortableData, index) {
         sortableData.splice(index, 1);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} item
+     * @param {?} index
+     * @return {?}
+     */
     insertItemAt(sortableData, item, index) {
         sortableData.splice(index, 0, item);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} item
+     * @param {?} index
+     * @return {?}
+     */
+    replaceItemAt(sortableData, item, index) {
+        sortableData.splice(index, 1, item);
+    }
 }
 class SortableFormArrayHandler {
+    /**
+     * @param {?} sortableData
+     * @param {?} index
+     * @return {?}
+     */
     getItemAt(sortableData, index) {
         return sortableData.at(index);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} item
+     * @return {?}
+     */
     indexOf(sortableData, item) {
         return sortableData.controls.indexOf(item);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} index
+     * @return {?}
+     */
     removeItemAt(sortableData, index) {
         sortableData.removeAt(index);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} item
+     * @param {?} index
+     * @return {?}
+     */
     insertItemAt(sortableData, item, index) {
         sortableData.insert(index, item);
     }
+    /**
+     * @param {?} sortableData
+     * @param {?} item
+     * @param {?} index
+     * @return {?}
+     */
+    replaceItemAt(sortableData, item, index) {
+        sortableData.setControl(index, item);
+    }
 }
-let SortableComponent = class SortableComponent extends AbstractComponent {
+class SortableComponent extends AbstractComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} dragDropService
+     * @param {?} config
+     * @param {?} _sortableContainer
+     * @param {?} _sortableDataService
+     * @param {?} cdr
+     */
     constructor(elemRef, dragDropService, config, _sortableContainer, _sortableDataService, cdr) {
         super(elemRef, dragDropService, config, cdr);
         this._sortableContainer = _sortableContainer;
@@ -752,24 +1000,40 @@ let SortableComponent = class SortableComponent extends AbstractComponent {
         this.dragEnabled = true;
         this.dropEnabled = true;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set draggable(value) {
         this.dragEnabled = !!value;
     }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
     set droppable(value) {
         this.dropEnabled = !!value;
     }
     /**
      * Drag allowed effect
+     * @param {?} value
+     * @return {?}
      */
     set effectallowed(value) {
         this.effectAllowed = value;
     }
     /**
      * Drag effect cursor
+     * @param {?} value
+     * @return {?}
      */
     set effectcursor(value) {
         this.effectCursor = value;
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragStartCallback(event) {
         // console.log('_onDragStartCallback. dragging elem with index ' + this.index);
         this._sortableDataService.isDragged = true;
@@ -783,15 +1047,34 @@ let SortableComponent = class SortableComponent extends AbstractComponent {
         //
         this.onDragStartCallback.emit(this._dragDropService.dragData);
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragOverCallback(event) {
-        if (this._sortableDataService.isDragged && this._elem !== this._sortableDataService.elem) {
+        if (this._sortableDataService.isDragged) {
             // console.log('_onDragOverCallback. dragging elem with index ' + this.index);
             this._sortableDataService.sortableContainer = this._sortableContainer;
             this._sortableDataService.index = this.index;
             this._sortableDataService.markSortable(this._elem);
-            this.onDragOverCallback.emit(this._dragDropService.dragData);
+            this._sortableContainer._elem.classList.add(this._config.onDragOverClass);
+            if (this._dragDropService.dragData instanceof Array) {
+                if (this._dragDropService.dragData[0] !== this._sortableContainer.getItemAt(this.index)) {
+                    const /** @type {?} */ temp = this._sortableContainer.getItemAt(this.index);
+                    const /** @type {?} */ tempIndex = this._sortableContainer.indexOf(this._dragDropService.dragData[0]);
+                    this._sortableContainer.replaceItemAt(this._dragDropService.dragData[0], this.index);
+                    console.log(this._sortableContainer.sortableData);
+                    this._sortableContainer.replaceItemAt(temp, tempIndex);
+                }
+            }
+            const /** @type {?} */ sortableItem = { index: this._sortableDataService.index, dragData: this._dragDropService.dragData };
+            this.onDragOverCallback.emit(sortableItem);
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEndCallback(event) {
         // console.log('_onDragEndCallback. end dragging elem with index ' + this.index);
         this._sortableDataService.isDragged = false;
@@ -802,9 +1085,14 @@ let SortableComponent = class SortableComponent extends AbstractComponent {
         this._dragDropService.isDragged = false;
         this._dragDropService.dragData = null;
         this._dragDropService.onDragSuccessCallback = null;
+        this._sortableContainer._elem.classList.remove(this._config.onDragOverClass);
         //
         this.onDragEndCallback.emit(this._dragDropService.dragData);
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDragEnterCallback(event) {
         if (this._sortableDataService.isDragged) {
             this._sortableDataService.markSortable(this._elem);
@@ -812,8 +1100,8 @@ let SortableComponent = class SortableComponent extends AbstractComponent {
                 (this._sortableDataService.sortableContainer.sortableData !== this._sortableContainer.sortableData)) {
                 // console.log('Component._onDragEnterCallback. drag node [' + this.index + '] over node [' + this._sortableDataService.index + ']');
                 // Get item
-                let item = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
-                // Remove item from previouse list
+                let /** @type {?} */ item = this._sortableDataService.sortableContainer.getItemAt(this._sortableDataService.index);
+                // Remove item from previous list
                 this._sortableDataService.sortableContainer.removeItemAt(this._sortableDataService.index);
                 if (this._sortableDataService.sortableContainer.sortableData.length === 0) {
                     this._sortableDataService.sortableContainer.dropEnabled = true;
@@ -829,6 +1117,10 @@ let SortableComponent = class SortableComponent extends AbstractComponent {
             }
         }
     }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
     _onDropCallback(event) {
         if (this._sortableDataService.isDragged) {
             // console.log('onDropCallback.onDropSuccessCallback.dragData', this._dragDropService.dragData);
@@ -841,110 +1133,101 @@ let SortableComponent = class SortableComponent extends AbstractComponent {
             this._sortableContainer.detectChanges();
         }
     }
+}
+SortableComponent.decorators = [
+    { type: Directive, args: [{ selector: '[dnd-sortable]' },] },
+];
+/** @nocollapse */
+SortableComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: SortableContainer, },
+    { type: DragDropSortableService, },
+    { type: ChangeDetectorRef, },
+];
+SortableComponent.propDecorators = {
+    "index": [{ type: Input, args: ['sortableIndex',] },],
+    "draggable": [{ type: Input, args: ["dragEnabled",] },],
+    "droppable": [{ type: Input, args: ["dropEnabled",] },],
+    "dragData": [{ type: Input },],
+    "effectallowed": [{ type: Input, args: ["effectAllowed",] },],
+    "effectcursor": [{ type: Input, args: ["effectCursor",] },],
+    "onDragSuccessCallback": [{ type: Output, args: ["onDragSuccess",] },],
+    "onDragStartCallback": [{ type: Output, args: ["onDragStart",] },],
+    "onDragOverCallback": [{ type: Output, args: ["onDragOver",] },],
+    "onDragEndCallback": [{ type: Output, args: ["onDragEnd",] },],
+    "onDropSuccessCallback": [{ type: Output, args: ["onDropSuccess",] },],
 };
-__decorate$5([
-    Input('sortableIndex'),
-    __metadata$4("design:type", Number)
-], SortableComponent.prototype, "index", void 0);
-__decorate$5([
-    Input("dragEnabled"),
-    __metadata$4("design:type", Boolean),
-    __metadata$4("design:paramtypes", [Boolean])
-], SortableComponent.prototype, "draggable", null);
-__decorate$5([
-    Input("dropEnabled"),
-    __metadata$4("design:type", Boolean),
-    __metadata$4("design:paramtypes", [Boolean])
-], SortableComponent.prototype, "droppable", null);
-__decorate$5([
-    Input(),
-    __metadata$4("design:type", Object)
-], SortableComponent.prototype, "dragData", void 0);
-__decorate$5([
-    Input("effectAllowed"),
-    __metadata$4("design:type", String),
-    __metadata$4("design:paramtypes", [String])
-], SortableComponent.prototype, "effectallowed", null);
-__decorate$5([
-    Input("effectCursor"),
-    __metadata$4("design:type", String),
-    __metadata$4("design:paramtypes", [String])
-], SortableComponent.prototype, "effectcursor", null);
-__decorate$5([
-    Output("onDragSuccess"),
-    __metadata$4("design:type", EventEmitter)
-], SortableComponent.prototype, "onDragSuccessCallback", void 0);
-__decorate$5([
-    Output("onDragStart"),
-    __metadata$4("design:type", EventEmitter)
-], SortableComponent.prototype, "onDragStartCallback", void 0);
-__decorate$5([
-    Output("onDragOver"),
-    __metadata$4("design:type", EventEmitter)
-], SortableComponent.prototype, "onDragOverCallback", void 0);
-__decorate$5([
-    Output("onDragEnd"),
-    __metadata$4("design:type", EventEmitter)
-], SortableComponent.prototype, "onDragEndCallback", void 0);
-__decorate$5([
-    Output("onDropSuccess"),
-    __metadata$4("design:type", EventEmitter)
-], SortableComponent.prototype, "onDropSuccessCallback", void 0);
-SortableComponent = __decorate$5([
-    Directive({ selector: '[dnd-sortable]' }),
-    __metadata$4("design:paramtypes", [ElementRef, DragDropService, DragDropConfig,
-        SortableContainer,
-        DragDropSortableService,
-        ChangeDetectorRef])
-], SortableComponent);
-let SortableHandleComponent = class SortableHandleComponent extends AbstractHandleComponent {
+class SortableHandleComponent extends AbstractHandleComponent {
+    /**
+     * @param {?} elemRef
+     * @param {?} dragDropService
+     * @param {?} config
+     * @param {?} _Component
+     * @param {?} cdr
+     */
     constructor(elemRef, dragDropService, config, _Component, cdr) {
         super(elemRef, dragDropService, config, _Component, cdr);
     }
-};
-SortableHandleComponent = __decorate$5([
-    Directive({ selector: '[dnd-sortable-handle]' }),
-    __metadata$4("design:paramtypes", [ElementRef, DragDropService, DragDropConfig, SortableComponent,
-        ChangeDetectorRef])
-], SortableHandleComponent);
+}
+SortableHandleComponent.decorators = [
+    { type: Directive, args: [{ selector: '[dnd-sortable-handle]' },] },
+];
+/** @nocollapse */
+SortableHandleComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: DragDropService, },
+    { type: DragDropConfig, },
+    { type: SortableComponent, },
+    { type: ChangeDetectorRef, },
+];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 let providers = [
     DragDropConfig,
     { provide: DragDropService, useFactory: dragDropServiceFactory },
     { provide: DragDropSortableService, useFactory: dragDropSortableServiceFactory, deps: [DragDropConfig] }
 ];
-let DndModule = DndModule_1 = class DndModule {
+class DndModule {
+    /**
+     * @return {?}
+     */
     static forRoot() {
         return {
-            ngModule: DndModule_1,
+            ngModule: DndModule,
             providers: providers
         };
     }
-};
-DndModule = DndModule_1 = __decorate([
-    NgModule({
-        declarations: [DraggableComponent, DraggableHandleComponent, DroppableComponent, SortableContainer, SortableComponent, SortableHandleComponent],
-        exports: [DraggableComponent, DraggableHandleComponent, DroppableComponent, SortableContainer, SortableComponent, SortableHandleComponent],
-    })
-], DndModule);
-var DndModule_1;
+}
+DndModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [DraggableComponent, DraggableHandleComponent, DroppableComponent, SortableContainer, SortableComponent, SortableHandleComponent],
+                exports: [DraggableComponent, DraggableHandleComponent, DroppableComponent, SortableContainer, SortableComponent, SortableHandleComponent],
+            },] },
+];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Copyright (C) 2016-2018 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
 // https://github.com/akserg/ng2-dnd
 
 /**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * Generated bundle index. Do not edit.
  */
 
-export { providers, DndModule, AbstractComponent, AbstractHandleComponent, DataTransferEffect, DragImage, DragDropConfig, DragDropData, dragDropServiceFactory, DragDropService, dragDropSortableServiceFactory, DragDropSortableService, DraggableComponent, DraggableHandleComponent, DroppableComponent, SortableContainer, SortableComponent, SortableHandleComponent };
-//# sourceMappingURL=ng2-dnd.js.map
+export { providers, DndModule, AbstractComponent, AbstractHandleComponent, DataTransferEffect, DragImage, DragDropConfig, dragDropServiceFactory, dragDropSortableServiceFactory, DragDropData, DragDropService, DragDropSortableService, DraggableComponent, DraggableHandleComponent, DroppableComponent, SortableContainer, SortableComponent, SortableHandleComponent };
+//# sourceMappingURL=ng2-drag-n-drop.js.map
