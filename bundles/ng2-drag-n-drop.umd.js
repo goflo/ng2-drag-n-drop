@@ -149,10 +149,10 @@ var AbstractComponent = /** @class */ (function () {
             _this._onDragEnter(event);
         };
         this._elem.ondragover = function (event) {
-            _this._onDragOver(event);
             if (event.dataTransfer != null) {
                 event.dataTransfer.dropEffect = _this._config.dropEffect.name;
             }
+	    _this._onDragOver(event);
             return false;
         };
         this._elem.ondragleave = function (event) {
