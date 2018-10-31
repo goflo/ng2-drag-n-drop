@@ -208,11 +208,10 @@ class AbstractComponent {
             this._onDragEnter(event);
         };
         this._elem.ondragover = (event) => {
-            this._onDragOver(event);
-            //
             if (event.dataTransfer != null) {
                 event.dataTransfer.dropEffect = this._config.dropEffect.name;
             }
+            this._onDragOver(event);
             return false;
         };
         this._elem.ondragleave = (event) => {
